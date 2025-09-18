@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>San Martín - Estudio complementario: Psicodiagnóstico</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .header-main {
+            background: #fff;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 0;
+        }
+
+        .header-top {
+            background: #1e3a8a;
+            color: white;
+            padding: 8px 0;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .logo-arc {
+            width: 60px;
+            height: 8px;
+            background: #1e3a8a;
+            border-radius: 50px 50px 0 0;
+            margin-bottom: 8px;
+        }
+
+        .logo-text {
+            color: #1e3a8a;
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .nav-main {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-main a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-main a:hover {
+            color: #1e3a8a;
+        }
+
+        .breadcrumb {
+            background: #fff;
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .breadcrumb-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .breadcrumb ul {
+            list-style: none;
+            display: flex;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .breadcrumb li:not(:last-child)::after {
+            content: ">";
+            margin-left: 10px;
+            color: #999;
+        }
+
+        .breadcrumb a {
+            color: #1e3a8a;
+            text-decoration: none;
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 40px;
+        }
+
+        .content-left {
+            background: #fff;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .content-right {
+            background: #fff;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            height: fit-content;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .info-box {
+            background: #f8f9fa;
+            border-left: 4px solid #1e3a8a;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .info-box h3 {
+            color: #1e3a8a;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .requirements-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .requirements-list li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .requirements-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #1e3a8a;
+            font-weight: bold;
+        }
+
+        .steps-list {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .steps-list li {
+            margin-bottom: 25px;
+            padding-left: 60px;
+            position: relative;
+        }
+
+        .steps-list li::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #1e3a8a;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .steps-list {
+            counter-reset: step-counter;
+        }
+
+        .steps-list h4 {
+            color: #333;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .cost-box {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .cost-box h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .cost-box p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        .contact-info h3 {
+            color: #1e3a8a;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: white;
+            border-radius: 6px;
+        }
+
+        .contact-icon {
+            width: 20px;
+            height: 20px;
+            background: #1e3a8a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .evaluation-section {
+            background: #fff;
+            border-radius: 8px;
+            padding: 40px;
+            margin-top: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .evaluation-title {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .start-btn {
+            background: #1e3a8a;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-family: 'Hanken Grotesk', sans-serif;
+        }
+
+        .start-btn:hover {
+            background: #7a35e6;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(134, 61, 255, 0.3);
+        }
+
+        .question {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-left: 4px solid #1e3a8a;
+            display: none;
+        }
+
+        .question.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .question h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .question p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .options {
+            display: grid;
+            gap: 12px;
+        }
+
+        .option {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            font-family: 'Hanken Grotesk', sans-serif;
+        }
+
+        .option:hover {
+            border-color: #1e3a8a;
+            background: #f0f0ff;
+        }
+
+        .option.selected {
+            border-color: #1e3a8a;
+            background: #f0f0ff;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            gap: 15px;
+        }
+
+        .nav-btn {
+            background: #6c757d;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            font-family: 'Hanken Grotesk', sans-serif;
+            font-weight: 500;
+        }
+
+        .nav-btn:hover {
+            background: #5a6268;
+            transform: translateY(-1px);
+        }
+
+        .nav-btn:disabled {
+            background: #dee2e6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .nav-btn.primary {
+            background: #1e3a8a;
+        }
+
+        .nav-btn.primary:hover {
+            background: #7a35e6;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 4px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #1e3a8a;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .results {
+            text-align: center;
+            padding: 40px;
+            display: none;
+        }
+
+        .results h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .results p {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .restart-btn {
+            background: #1e3a8a;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 30px;
+            transition: all 0.3s ease;
+            font-family: 'Hanken Grotesk', sans-serif;
+            font-weight: 500;
+        }
+
+        .restart-btn:hover {
+            background: #7a35e6;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(134, 61, 255, 0.3);
+        }
+
+        .biometric-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .biometric-btn.validating {
+            background: #6c757d !important;
+            cursor: not-allowed;
+        }
+
+        .biometric-btn.validating .btn-text {
+            opacity: 0;
+        }
+
+        .biometric-btn.validating .biometric-icon {
+            display: inline-block !important;
+            animation: pulse 1.5s infinite;
+        }
+
+        .biometric-btn.validating .loading-spinner {
+            display: inline-block !important;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .submit-btn {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-family: 'Hanken Grotesk', sans-serif;
+        }
+
+        .submit-btn:hover {
+            background: #218838;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+        }
+
+        .biometric-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .biometric-modal.active {
+            display: flex;
+        }
+
+        .biometric-content {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .biometric-icon-large {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        .biometric-text {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .biometric-progress {
+            width: 100%;
+            height: 6px;
+            background: #e9ecef;
+            border-radius: 3px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .biometric-progress-fill {
+            height: 100%;
+            background: #1e3a8a;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .camera-container {
+            width: 100%;
+            max-width: 400px;
+            margin: 20px auto;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 3px solid #1e3a8a;
+            background: #000;
+        }
+
+        .camera-feed {
+            width: 100%;
+            height: 300px;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .camera-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            border: 2px solid #1e3a8a;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: scan 2s infinite;
+        }
+
+        @keyframes scan {
+            0% { border-color: #1e3a8a; box-shadow: 0 0 20px #1e3a8a; }
+            50% { border-color: #00ff00; box-shadow: 0 0 30px #00ff00; }
+            100% { border-color: #1e3a8a; box-shadow: 0 0 20px #1e3a8a; }
+        }
+
+        .camera-status {
+            background: rgba(134, 61, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #1e3a8a;
+        }
+
+        .camera-status h4 {
+            color: #1e3a8a;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .camera-status p {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .camera-controls {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .camera-btn {
+            background: #1e3a8a;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .camera-btn:hover {
+            background: #7a35e6;
+            transform: translateY(-1px);
+        }
+
+        .camera-btn.secondary {
+            background: #6c757d;
+        }
+
+        .camera-btn.secondary:hover {
+            background: #5a6268;
+        }
+
+        .footer {
+            background: #333;
+            color: white;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav-main {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .content-left, .content-right {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header-main">
+        <div class="header-top">
+            Municipalidad de San Martín - Portal de Trámites
+        </div>
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-arc"></div>
+                <div class="logo-text">San Martín</div>
+            </div>
+            <nav>
+                <ul class="nav-main">
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Trámites</a></li>
+                    <li><a href="#">Servicios</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumb">
+        <div class="breadcrumb-content">
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Gobierno y Vínculo Ciudadano</a></li>
+                <li><a href="#">Licencias de conducir</a></li>
+                <li>Trámites</li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="content-left">
+            <h1 class="page-title">Estudio complementario: Psicodiagnóstico</h1>
+            <p class="page-subtitle">
+                Será necesario si, al realizar tu trámite para la Licencia de conducir, en el área de Psicología, te pidieron complementar tu evaluación con un estudio psicodiagnóstico.
+            </p>
+
+            <div class="info-box">
+                <h3>Modalidad</h3>
+                <p>Online / Presencial</p>
+            </div>
+
+            <h2 style="color: #333; margin: 30px 0 20px 0; font-weight: 600;">¿Cuáles son los requisitos?</h2>
+            <ul class="requirements-list">
+                <li>Que hayas recibido la solicitud de estudio en formato digital (por mail).</li>
+                <li>DNI original, vigente y con domicilio en la Ciudad.</li>
+            </ul>
+
+            <div class="info-box">
+                <strong>No podrás realizar tu trámite si no contás con todos los requisitos.</strong>
+            </div>
+
+            <h2 style="color: #333; margin: 30px 0 20px 0; font-weight: 600;">Pasos para realizar el trámite</h2>
+            <ol class="steps-list">
+                <li>
+                    <h4>Reservá el turno</h4>
+                    <p>Te va a llegar a tu correo electrónico la solicitud correspondiente al estudio, donde figura el link para acceder a la agenda de turnos. Recordá revisar la casilla de spam o correo no deseado.</p>
+                </li>
+                <li>
+                    <h4>Avanzá con el trámite</h4>
+                    <p>Presentaté el día del turno en la sede elegida.</p>
+                </li>
+            </ol>
+
+            <div class="cost-box">
+                <h3>Gratis</h3>
+                <p>Estudio psicodiagnóstico</p>
+                <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.8;">Según la Ley Tarifaria vigente.</p>
+            </div>
+
+            <h2 style="color: #333; margin: 30px 0 20px 0; font-weight: 600;">Más información</h2>
+            <ul class="requirements-list">
+                <li>De llegar con más de <strong>10 minutos de demora</strong>, no podrás ser evaluado y <strong>deberás solicitar un nuevo turno</strong>.</li>
+                <li>La evaluación demorará aproximadamente <strong>dos horas</strong>.</li>
+                <li>El celular deberá permanecer <strong>apagado</strong> durante la evaluación.</li>
+                <li><strong>Recordá que, si te desuscribiste de los mails del Gobierno de la Ciudad, no podrás recibir el mail de confirmación de turnos. En ese caso, tenés que llamar al 147 para indicar un correo electrónico alternativo.</strong></li>
+            </ul>
+
+            <h2 style="color: #333; margin: 30px 0 20px 0; font-weight: 600;">Normativa</h2>
+            <p>Ley 6812 Modificación de Ley 6806. Tarifaria 2025.</p>
+
+            <h2 style="color: #333; margin: 30px 0 20px 0; font-weight: 600;">Organismo Responsable</h2>
+            <h3 style="color: #1e3a8a; margin-bottom: 15px;">Dirección General Habilitación de Conductores</h3>
+            
+            <div class="contact-info">
+                <h3>Ubicación</h3>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <span>Av. Roca 5252</span>
+                </div>
+                
+                <h3>Días de atención</h3>
+                <div class="contact-item">
+                    <div class="contact-icon">📅</div>
+                    <span>Lunes a viernes</span>
+                </div>
+                
+                <h3>Horarios de atención</h3>
+                <div class="contact-item">
+                    <div class="contact-icon">🕒</div>
+                    <span>8.30 a 16 hs</span>
+                </div>
+            </div>
+
+            <div class="evaluation-section">
+                <h2 class="evaluation-title">Evaluación Psicológica Complementaria</h2>
+                <p style="margin-bottom: 25px; color: #666;">
+                    Esta evaluación consta de 5 preguntas seleccionadas aleatoriamente de un banco de 10 preguntas. 
+                    Cada pregunta evalúa diferentes aspectos de las capacidades cognitivas relacionadas con la conducción segura.
+                </p>
+                
+                <!-- Información sobre la cámara -->
+                <div class="info-box" style="margin-bottom: 25px;">
+                    <h3>🔒 Validación Biométrica con Cámara</h3>
+                    <p style="margin: 10px 0; font-size: 0.95rem;">
+                        Para garantizar la seguridad de la evaluación, se requiere validación biométrica mediante reconocimiento facial. 
+                        El sistema solicitará acceso a su cámara web para verificar su identidad.
+                    </p>
+                    <ul style="margin: 10px 0; padding-left: 20px; font-size: 0.9rem;">
+                        <li>Asegúrese de tener buena iluminación</li>
+                        <li>Posicione su rostro en el centro del círculo</li>
+                        <li>Mantenga una expresión neutra durante el escaneo</li>
+                        <li>No se almacenan imágenes, solo se procesan temporalmente</li>
+                    </ul>
+                </div>
+                
+                <!-- Botón de inicio con validación biométrica -->
+                <div id="startSection">
+                    <button class="start-btn biometric-btn" onclick="startBiometricValidation()">
+                        <span class="btn-text">Iniciar Evaluación</span>
+                        <span class="biometric-icon" style="display: none;">🔒</span>
+                        <span class="loading-spinner" style="display: none;">⏳</span>
+                    </button>
+                    <p style="margin-top: 15px; font-size: 0.9rem; color: #666; text-align: center;">
+                        Se requiere validación biométrica con cámara para continuar
+                    </p>
+                </div>
+
+                <div id="evaluationContent" style="display: none;">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+
+                    <div id="questionsContainer"></div>
+
+                    <div class="navigation" id="navigation" style="display: none;">
+                        <button class="nav-btn" id="prevBtn" onclick="previousQuestion()">Anterior</button>
+                        <button class="nav-btn primary" id="nextBtn" onclick="nextQuestion()">Siguiente</button>
+                    </div>
+
+                    <!-- Botón de enviar con validación biométrica -->
+                    <div id="submitSection" style="display: none; text-align: center; margin-top: 30px;">
+                        <button class="submit-btn biometric-btn" onclick="submitBiometricValidation()">
+                            <span class="btn-text">Enviar Evaluación</span>
+                            <span class="biometric-icon" style="display: none;">🔒</span>
+                            <span class="loading-spinner" style="display: none;">⏳</span>
+                        </button>
+                        <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+                            Se requiere validación biométrica con cámara para enviar
+                        </p>
+                    </div>
+
+                    <div class="results" id="resultsSection">
+                        <h2>¡Evaluación Completada!</h2>
+                        <p>Has respondido todas las preguntas de la evaluación. Esta herramienta está diseñada para evaluar diferentes aspectos de las capacidades cognitivas relacionadas con la conducción segura.</p>
+                        <button class="restart-btn" onclick="restartEvaluation()">Realizar Nueva Evaluación</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-right">
+            <h3 style="color: #333; margin-bottom: 20px; font-weight: 600;">Teléfonos útiles</h3>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <span>102 - Niñez y Adolescencia</span>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🚨</div>
+                    <span>103 - Emergencias</span>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🚑</div>
+                    <span>107 - SAME</span>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">👮</div>
+                    <span>911 - Policía</span>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🆘</div>
+                    <span>144 - Violencia de género</span>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">ℹ️</div>
+                    <span>147 - Atención ciudadana</span>
+                </div>
+            </div>
+
+            <h3 style="color: #333; margin: 30px 0 20px 0; font-weight: 600;">Redes sociales</h3>
+            <div style="display: flex; gap: 15px; justify-content: center;">
+                <div style="width: 40px; height: 40px; background: #1e3a8a; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">f</div>
+                <div style="width: 40px; height: 40px; background: #1e3a8a; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">📷</div>
+                <div style="width: 40px; height: 40px; background: #1e3a8a; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">🐦</div>
+                <div style="width: 40px; height: 40px; background: #1e3a8a; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">▶️</div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal de Validación Biométrica -->
+    <div class="biometric-modal" id="biometricModal">
+        <div class="biometric-content">
+            <div class="biometric-icon-large" id="biometricIcon">🔒</div>
+            <div class="biometric-text" id="biometricText">Iniciando validación biométrica...</div>
+            
+            <!-- Contenedor de la cámara -->
+            <div class="camera-container" id="cameraContainer" style="display: none;">
+                <div class="camera-feed" id="cameraFeed">
+                    <div>Iniciando cámara...</div>
+                </div>
+                <div class="camera-overlay" id="cameraOverlay"></div>
+            </div>
+            
+            <!-- Estado de la cámara -->
+            <div class="camera-status" id="cameraStatus" style="display: none;">
+                <h4>Estado de la Cámara</h4>
+                <p id="cameraStatusText">Esperando acceso a la cámara...</p>
+            </div>
+            
+            <div class="biometric-progress">
+                <div class="biometric-progress-fill" id="biometricProgress"></div>
+            </div>
+            <div id="biometricStatus">Coloque su dedo en el sensor</div>
+            
+            <!-- Controles de la cámara -->
+            <div class="camera-controls" id="cameraControls" style="display: none;">
+                <button class="camera-btn" onclick="startCamera()">Activar Cámara</button>
+                <button class="camera-btn secondary" onclick="stopCamera()">Detener Cámara</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">Municipalidad de San Martín</div>
+            <p>Portal de Trámites y Servicios Ciudadanos</p>
+            <p style="margin-top: 20px; font-size: 14px; opacity: 0.8;">
+                Los contenidos están licenciados bajo Creative Commons Reconocimiento 2.5 Argentina License.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Banco de preguntas completo
+        const allQuestions = [
+            {
+                id: 1,
+                title: "Percepción visual rápida",
+                question: "Observa la siguiente secuencia de símbolos por 5 segundos (⚪🔺⚪🔻🔺). Luego responde: ¿Cuál era el tercer símbolo?",
+                options: ["⚪", "🔺", "🔻", "No recuerdo"],
+                correct: 0
+            },
+            {
+                id: 2,
+                title: "Tiempo de reacción",
+                question: "Si un niño cruza repentinamente la calle mientras conduces a 40 km/h, ¿cuál es la primera acción correcta?",
+                options: ["Tocar la bocina", "Frenar inmediatamente", "Esquivar rápidamente", "Acelerar para evitar el golpe"],
+                correct: 1
+            },
+            {
+                id: 3,
+                title: "Atención selectiva",
+                question: "En una avenida, un semáforo cambia de verde a amarillo. Estás a 15 metros. ¿Qué harías?",
+                options: ["Frenar suavemente", "Continuar acelerando", "Detenerte bruscamente", "Ignorarlo"],
+                correct: 0
+            },
+            {
+                id: 4,
+                title: "Tolerancia a la frustración",
+                question: "Un auto detrás de ti toca la bocina insistentemente en un embotellamiento. ¿Cómo reaccionas?",
+                options: ["Te enojas y frenas de golpe", "Ignoras y mantienes tu posición", "Le haces gestos de molestia", "Intentas apartarte si es seguro"],
+                correct: 3
+            },
+            {
+                id: 5,
+                title: "Capacidad de anticipación",
+                question: "Ves a un ciclista delante de ti moviéndose de forma inestable. ¿Qué haces?",
+                options: ["Lo adelantas rápidamente", "Mantienes distancia y reduces velocidad", "Le tocas la bocina para que se aparte", "Lo sigues a la misma velocidad"],
+                correct: 1
+            },
+            {
+                id: 6,
+                title: "Resistencia al estrés",
+                question: "Conduces bajo lluvia intensa de noche. Un auto viene con las luces altas. ¿Qué haces?",
+                options: ["Mirar directamente las luces", "Desviar la mirada hacia la derecha de tu carril", "Frenar bruscamente", "Cerrar los ojos momentáneamente"],
+                correct: 1
+            },
+            {
+                id: 7,
+                title: "Memoria de corto plazo",
+                question: "El inspector te pide que recuerdes tres palabras: \"Perro – Árbol – Casa\". Después de dos minutos, ¿cuáles eran?",
+                options: ["Perro, Árbol, Casa", "Gato, Planta, Edificio", "Perro, Planta, Casa", "Gato, Árbol, Edificio"],
+                correct: 0
+            },
+            {
+                id: 8,
+                title: "Juicio y ética vial",
+                question: "Llegas a un cruce sin semáforo, pero hay un peatón esperando para cruzar. ¿Qué haces?",
+                options: ["Aceleras antes que cruce", "Frenas y le cedes el paso", "Pasas lentamente sin detenerte", "Le indicas con la mano que espere"],
+                correct: 1
+            },
+            {
+                id: 9,
+                title: "Capacidad de concentración",
+                question: "Durante una conducción prolongada, ¿cada cuánto tiempo se recomienda hacer una pausa para descansar?",
+                options: ["Cada 30 minutos", "Cada 2 horas", "Cada 5 horas", "Solo si sientes cansancio"],
+                correct: 1
+            },
+            {
+                id: 10,
+                title: "Reconocimiento de señales",
+                question: "¿Qué indica esta señal 🚫🚗?",
+                options: ["Prohibido estacionar", "Prohibido circular", "Solo tránsito liviano", "Ceda el paso"],
+                correct: 1
+            }
+        ];
+
+        let selectedQuestions = [];
+        let currentQuestionIndex = 0;
+        let userAnswers = [];
+        let isBiometricValidated = false;
+        let stream = null;
+        let videoElement = null;
+
+        function startBiometricValidation() {
+            const startBtn = document.querySelector('.start-btn');
+            startBtn.classList.add('validating');
+            
+            showBiometricModal('Iniciando validación biométrica...', 'Coloque su dedo en el sensor', '🔒');
+            
+            // Mostrar controles de cámara después de un breve delay
+            setTimeout(() => {
+                document.getElementById('cameraContainer').style.display = 'block';
+                document.getElementById('cameraStatus').style.display = 'block';
+                document.getElementById('cameraControls').style.display = 'flex';
+                document.getElementById('biometricText').textContent = 'Se requiere acceso a la cámara para validación facial';
+            }, 1000);
+        }
+
+        function submitBiometricValidation() {
+            const submitBtn = document.querySelector('.submit-btn');
+            submitBtn.classList.add('validating');
+            
+            showBiometricModal('Validación biométrica final...', 'Coloque su dedo en el sensor', '🔒');
+            
+            // Mostrar controles de cámara después de un breve delay
+            setTimeout(() => {
+                document.getElementById('cameraContainer').style.display = 'block';
+                document.getElementById('cameraStatus').style.display = 'block';
+                document.getElementById('cameraControls').style.display = 'flex';
+                document.getElementById('biometricText').textContent = 'Se requiere acceso a la cámara para validación final';
+            }, 1000);
+        }
+
+        async function startCamera() {
+            try {
+                // Solicitar acceso a la cámara
+                stream = await navigator.mediaDevices.getUserMedia({ 
+                    video: { 
+                        width: { ideal: 400 },
+                        height: { ideal: 300 },
+                        facingMode: 'user'
+                    } 
+                });
+                
+                // Crear elemento de video
+                videoElement = document.createElement('video');
+                videoElement.srcObject = stream;
+                videoElement.autoplay = true;
+                videoElement.playsInline = true;
+                videoElement.style.width = '100%';
+                videoElement.style.height = '100%';
+                videoElement.style.objectFit = 'cover';
+                
+                // Reemplazar el contenido del feed de la cámara
+                const cameraFeed = document.getElementById('cameraFeed');
+                cameraFeed.innerHTML = '';
+                cameraFeed.appendChild(videoElement);
+                
+                // Actualizar estado
+                document.getElementById('cameraStatusText').textContent = 'Cámara activa - Posicione su rostro en el círculo';
+                document.getElementById('biometricIcon').textContent = '👁️';
+                
+                // Simular proceso de escaneo facial
+                setTimeout(() => {
+                    startFacialScan();
+                }, 2000);
+                
+            } catch (error) {
+                console.error('Error al acceder a la cámara:', error);
+                document.getElementById('cameraStatusText').textContent = 'Error al acceder a la cámara. Verifique los permisos.';
+                document.getElementById('biometricIcon').textContent = '❌';
+            }
+        }
+
+        function stopCamera() {
+            if (stream) {
+                stream.getTracks().forEach(track => track.stop());
+                stream = null;
+            }
+            
+            if (videoElement) {
+                videoElement.remove();
+                videoElement = null;
+            }
+            
+            // Restaurar estado inicial
+            const cameraFeed = document.getElementById('cameraFeed');
+            cameraFeed.innerHTML = '<div>Cámara detenida</div>';
+            document.getElementById('cameraStatusText').textContent = 'Cámara detenida';
+            document.getElementById('biometricIcon').textContent = '🔒';
+        }
+
+        function startFacialScan() {
+            document.getElementById('biometricIcon').textContent = '👁️';
+            document.getElementById('biometricText').textContent = 'Escaneando rostro...';
+            document.getElementById('biometricStatus').textContent = 'Mantenga su rostro centrado en el círculo';
+            
+            // Simular progreso del escaneo
+            let progress = 0;
+            const scanInterval = setInterval(() => {
+                progress += 10;
+                updateBiometricProgress(progress);
+                
+                if (progress >= 100) {
+                    clearInterval(scanInterval);
+                    completeBiometricValidation();
+                }
+            }, 200);
+        }
+
+        function completeBiometricValidation() {
+            document.getElementById('biometricIcon').textContent = '✅';
+            document.getElementById('biometricText').textContent = '¡Validación biométrica exitosa!';
+            document.getElementById('biometricStatus').textContent = 'Identidad verificada correctamente';
+            
+            // Detener cámara
+            stopCamera();
+            
+            // Ocultar controles de cámara
+            document.getElementById('cameraContainer').style.display = 'none';
+            document.getElementById('cameraStatus').style.display = 'none';
+            document.getElementById('cameraControls').style.display = 'none';
+            
+            // Continuar con el proceso según el contexto
+            setTimeout(() => {
+                hideBiometricModal();
+                
+                // Determinar si es inicio o finalización
+                const startBtn = document.querySelector('.start-btn');
+                const submitBtn = document.querySelector('.submit-btn');
+                
+                if (startBtn.classList.contains('validating')) {
+                    startBtn.classList.remove('validating');
+                    startEvaluation();
+                } else if (submitBtn.classList.contains('validating')) {
+                    submitBtn.classList.remove('validating');
+                    showResults();
+                }
+            }, 2000);
+        }
+
+        function showBiometricModal(text, status, icon) {
+            document.getElementById('biometricModal').classList.add('active');
+            document.getElementById('biometricText').textContent = text;
+            document.getElementById('biometricStatus').textContent = status;
+            document.getElementById('biometricIcon').textContent = icon;
+            document.getElementById('biometricProgress').style.width = '0%';
+            
+            // Ocultar elementos de cámara inicialmente
+            document.getElementById('cameraContainer').style.display = 'none';
+            document.getElementById('cameraStatus').style.display = 'none';
+            document.getElementById('cameraControls').style.display = 'none';
+        }
+
+        function updateBiometricStatus(status, icon) {
+            document.getElementById('biometricStatus').textContent = status;
+            document.getElementById('biometricIcon').textContent = icon;
+        }
+
+        function updateBiometricProgress(percentage) {
+            document.getElementById('biometricProgress').style.width = percentage + '%';
+        }
+
+        function hideBiometricModal() {
+            document.getElementById('biometricModal').classList.remove('active');
+            // Detener cámara si está activa
+            if (stream) {
+                stopCamera();
+            }
+        }
+
+        function startEvaluation() {
+            // Seleccionar 5 preguntas aleatorias
+            selectedQuestions = getRandomQuestions(5);
+            currentQuestionIndex = 0;
+            userAnswers = new Array(selectedQuestions.length).fill(null);
+            
+            document.getElementById('startSection').style.display = 'none';
+            document.getElementById('evaluationContent').style.display = 'block';
+            
+            showQuestion();
+            updateProgress();
+        }
+
+        function getRandomQuestions(count) {
+            const shuffled = [...allQuestions].sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, count);
+        }
+
+        function showQuestion() {
+            const question = selectedQuestions[currentQuestionIndex];
+            const container = document.getElementById('questionsContainer');
+            
+            container.innerHTML = `
+                <div class="question active">
+                    <h3>${question.title}</h3>
+                    <p>${question.question}</p>
+                    <div class="options">
+                        ${question.options.map((option, index) => `
+                            <div class="option ${userAnswers[currentQuestionIndex] === index ? 'selected' : ''}" 
+                                 onclick="selectOption(${index})">
+                                ${String.fromCharCode(97 + index)}) ${option}
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+
+            updateNavigation();
+        }
+
+        function selectOption(optionIndex) {
+            userAnswers[currentQuestionIndex] = optionIndex;
+            
+            // Actualizar visualización de opciones
+            const options = document.querySelectorAll('.option');
+            options.forEach((option, index) => {
+                option.classList.toggle('selected', index === optionIndex);
+            });
+            
+            updateNavigation();
+        }
+
+        function updateNavigation() {
+            const navigation = document.getElementById('navigation');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const submitSection = document.getElementById('submitSection');
+            
+            navigation.style.display = 'flex';
+            
+            prevBtn.disabled = currentQuestionIndex === 0;
+            
+            if (currentQuestionIndex === selectedQuestions.length - 1) {
+                nextBtn.style.display = 'none';
+                submitSection.style.display = 'block';
+            } else {
+                nextBtn.style.display = 'inline-block';
+                submitSection.style.display = 'none';
+                nextBtn.textContent = 'Siguiente';
+            }
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < selectedQuestions.length - 1) {
+                currentQuestionIndex++;
+                showQuestion();
+                updateProgress();
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                showQuestion();
+                updateProgress();
+            }
+        }
+
+        function updateProgress() {
+            const progress = ((currentQuestionIndex + 1) / selectedQuestions.length) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+
+        function showResults() {
+            document.getElementById('questionsContainer').style.display = 'none';
+            document.getElementById('navigation').style.display = 'none';
+            document.getElementById('submitSection').style.display = 'none';
+            document.getElementById('resultsSection').style.display = 'block';
+        }
+
+        function restartEvaluation() {
+            document.getElementById('resultsSection').style.display = 'none';
+            document.getElementById('questionsContainer').style.display = 'block';
+            document.getElementById('navigation').style.display = 'none';
+            document.getElementById('submitSection').style.display = 'none';
+            document.getElementById('startSection').style.display = 'block';
+            selectedQuestions = [];
+            currentQuestionIndex = 0;
+            userAnswers = [];
+            isBiometricValidated = false;
+        }
+    </script>
+</body>
+</html>
