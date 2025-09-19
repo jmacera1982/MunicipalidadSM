@@ -1,0 +1,2320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renovación de Licencia de Conducir - San Martín</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        .header-top {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 8px 0;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .header-main {
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .logo-arc {
+            width: 80px;
+            height: 12px;
+            background: #1e3a8a;
+            border-radius: 50px 50px 0 0;
+            margin-bottom: 8px;
+        }
+
+        .logo-text {
+            color: #1e3a8a;
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            margin: 0;
+        }
+
+        .nav-menu a {
+            color: #374151;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: #1e3a8a;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb-section {
+            background-color: #f1f5f9;
+            padding: 15px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .breadcrumb-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .breadcrumb {
+            list-style: none;
+            display: flex;
+            gap: 10px;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .breadcrumb li:not(:last-child)::after {
+            content: ">";
+            margin-left: 10px;
+            color: #64748b;
+        }
+
+        .breadcrumb a {
+            color: #1e3a8a;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Content */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .page-header {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .page-title {
+            color: #1e3a8a;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .page-subtitle {
+            color: #64748b;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .municipality-info {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .municipality-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* Process Steps */
+        .process-section {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            color: #1e3a8a;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .step-card {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(30, 58, 138, 0.15);
+            border-color: #1e3a8a;
+        }
+
+        .step-number {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+
+        .step-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .step-card h3 {
+            color: #1e3a8a;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .step-card p {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .step-features {
+            list-style: none;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .step-features li {
+            color: #475569;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            padding: 5px 0;
+        }
+
+        .step-features li::before {
+            content: '✓';
+            color: #10b981;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.1rem;
+        }
+
+        .btn-step {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .btn-step:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(30, 58, 138, 0.3);
+            color: white;
+            text-decoration: none;
+        }
+
+        .btn-step i {
+            margin-right: 8px;
+        }
+
+        /* Info Section */
+        .info-section {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 30px;
+            border-left: 4px solid #1e3a8a;
+        }
+
+        .info-section h3 {
+            color: #1e3a8a;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .info-item {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .info-item i {
+            font-size: 2rem;
+            color: #1e3a8a;
+            margin-bottom: 15px;
+        }
+
+        .info-item h4 {
+            color: #1e3a8a;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .info-item p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1e3a8a;
+            color: white;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .footer p {
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Asistente Styles */
+        .assistant-step {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .assistant-step.active {
+            display: block;
+        }
+
+        .option-buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .option-btn {
+            flex: 1;
+            min-width: 250px;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-btn:hover {
+            border-color: #1e3a8a;
+            background: #f8fafc;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(30, 58, 138, 0.15);
+        }
+
+        .option-btn i {
+            font-size: 2rem;
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+
+        .option-btn strong {
+            color: #1e3a8a;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .option-btn span {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #1e3a8a;
+            box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+        }
+
+        .form-group small {
+            color: #64748b;
+            font-size: 0.8rem;
+            margin-top: 5px;
+            display: block;
+        }
+
+        .exams-container {
+            margin: 30px 0;
+        }
+
+        .exam-card {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .exam-card:hover {
+            border-color: #1e3a8a;
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(30, 58, 138, 0.15);
+        }
+
+        .exam-icon {
+            font-size: 2.5rem;
+            color: #1e3a8a;
+        }
+
+        .exam-info h4 {
+            color: #1e3a8a;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .exam-info p {
+            color: #64748b;
+            margin-bottom: 15px;
+        }
+
+        .exam-btn {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .exam-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(30, 58, 138, 0.3);
+            color: white;
+            text-decoration: none;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Estilos para Modales */
+        .biometric-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .biometric-modal.active {
+            display: flex;
+        }
+
+        .biometric-content {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .biometric-icon-large {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        .biometric-text {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .biometric-progress {
+            width: 100%;
+            height: 6px;
+            background: #e9ecef;
+            border-radius: 3px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .biometric-progress-fill {
+            height: 100%;
+            background: #1e3a8a;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .camera-container {
+            width: 100%;
+            max-width: 400px;
+            margin: 20px auto;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 3px solid #1e3a8a;
+            background: #000;
+        }
+
+        .camera-feed {
+            width: 100%;
+            height: 300px;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .camera-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            border: 2px solid #1e3a8a;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: scan 2s infinite;
+        }
+
+        @keyframes scan {
+            0% { border-color: #1e3a8a; box-shadow: 0 0 20px #1e3a8a; }
+            50% { border-color: #00ff00; box-shadow: 0 0 30px #00ff00; }
+            100% { border-color: #1e3a8a; box-shadow: 0 0 20px #1e3a8a; }
+        }
+
+        .camera-status {
+            background: rgba(30, 58, 138, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #1e3a8a;
+        }
+
+        .camera-status h4 {
+            color: #1e3a8a;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .camera-status p {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .camera-controls {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .camera-btn {
+            background: #1e3a8a;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .camera-btn:hover {
+            background: #3b82f6;
+            transform: translateY(-1px);
+        }
+
+        .camera-btn.secondary {
+            background: #6c757d;
+        }
+
+        .camera-btn.secondary:hover {
+            background: #5a6268;
+        }
+
+        /* Estilos para los modales */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal.active {
+            display: block;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 3% auto;
+            padding: 30px;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(134, 61, 255, 0.1);
+        }
+
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 28px;
+            font-weight: 300;
+            cursor: pointer;
+            color: #6b7280;
+            transition: all 0.2s ease;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .close:hover {
+            color: #374151;
+            background-color: #f3f4f6;
+            transform: scale(1.1);
+        }
+
+        /* Estilos para el formulario de cita */
+        .selectors-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .selector-label {
+            display: block;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .especialidad-cards, .sucursal-cards, .sala-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .especialidad-card, .sucursal-card, .sala-card {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .especialidad-card:hover, .sucursal-card:hover, .sala-card:hover {
+            border-color: #1e3a8a;
+            background: #f0f0ff;
+            transform: translateY(-2px);
+        }
+
+        .especialidad-card.selected, .sucursal-card.selected, .sala-card.selected {
+            border-color: #1e3a8a;
+            background: #f0f0ff;
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.2);
+        }
+
+        .loading-card {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            color: #6b7280;
+        }
+
+        .loading-card i {
+            animation: spin 1s linear infinite;
+            margin-right: 8px;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-col {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-col-full {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        .form-col label {
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 8px;
+        }
+
+        .input-field {
+            padding: 12px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #1e3a8a;
+            box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: flex-end;
+            margin-top: 30px;
+        }
+
+        .btn-primary {
+            background: #1e3a8a;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary:hover {
+            background: #1e40af;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .p-4 {
+            padding: 1rem;
+        }
+
+        .rounded-lg {
+            border-radius: 0.5rem;
+        }
+
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex-wrap {
+            flex-wrap: wrap;
+        }
+
+        .gap-3 {
+            gap: 0.75rem;
+        }
+
+        .justify-center {
+            justify-content: center;
+        }
+
+        .my-4 {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .space-y-4 > * + * {
+            margin-top: 1rem;
+        }
+
+        /* Estilos para tarjetas de éxito y error */
+        .success-card, .error-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border: 2px solid;
+        }
+
+        .success-card {
+            border-color: #10b981;
+            background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+        }
+
+        .error-card {
+            border-color: #ef4444;
+            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+        }
+
+        .success-icon, .error-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .success-title, .error-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .success-title {
+            color: #065f46;
+        }
+
+        .error-title {
+            color: #dc2626;
+        }
+
+        .success-details {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .success-details p {
+            margin: 8px 0;
+            color: #374151;
+        }
+
+        .success-message {
+            color: #047857;
+            font-weight: 500;
+        }
+
+        .error-message {
+            color: #dc2626;
+            margin-bottom: 20px;
+        }
+
+        .spin {
+            animation: spin 1s linear infinite;
+        }
+
+        /* Estilos para la sección de requisitos */
+        .requirements-section {
+            margin-top: 25px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .requirements-title {
+            color: #1e3a8a;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 2px solid #1e3a8a;
+            padding-bottom: 10px;
+        }
+
+        .requirements-title i {
+            font-size: 1.2rem;
+            color: #1e3a8a;
+        }
+
+        .requirements-content {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .requirements-list {
+            margin-bottom: 25px;
+        }
+
+        .requirement-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 15px;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 4px solid #1e3a8a;
+            transition: all 0.3s ease;
+            margin-bottom: 10px;
+        }
+
+        .requirement-item:hover {
+            background: #f0f0ff;
+            transform: translateY(-1px);
+            box-shadow: 0 3px 8px rgba(30, 58, 138, 0.1);
+        }
+
+        .requirement-icon {
+            font-size: 1.3rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .requirement-text {
+            flex: 1;
+            color: #374151;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .requirement-text strong {
+            color: #1e3a8a;
+            font-weight: 700;
+        }
+
+        .requirements-special {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border: 1px solid #0ea5e9;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .special-title {
+            color: #0c4a6e;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .special-title i {
+            color: #0ea5e9;
+            font-size: 1.1rem;
+        }
+
+        .special-list {
+            margin: 0;
+            padding-left: 20px;
+            color: #0c4a6e;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .special-list li {
+            margin-bottom: 5px;
+        }
+
+        .requirements-note {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 1px solid #f59e0b;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .requirements-note i {
+            color: #d97706;
+            font-size: 1.1rem;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .requirements-note span {
+            color: #92400e;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .requirements-note strong {
+            color: #92400e;
+            font-weight: 700;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .main-container {
+                padding: 20px 15px;
+            }
+
+            .page-header,
+            .process-section {
+                padding: 20px;
+            }
+
+            .option-buttons {
+                flex-direction: column;
+            }
+
+            .option-btn {
+                min-width: auto;
+            }
+
+            .exam-card {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Top -->
+    <div class="header-top">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <span>Municipalidad de San Martín - Portal de Trámites</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Main -->
+    <header class="header-main">
+        <div class="header-content">
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="images/logo.png" alt="San Martín" style="width: 160px; height: auto;">
+                </div>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Trámites</a></li>
+                    <li><a href="#">Servicios</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb-section">
+        <div class="breadcrumb-content">
+            <ul class="breadcrumb">
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Trámites</a></li>
+                <li><a href="#">Tránsito y Transporte</a></li>
+                <li>Licencias de Conducir</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <div class="page-header">
+            <h1 class="page-title">
+                <i class="bi bi-car-front"></i>
+                Licencia de Conducir - San Martín
+            </h1>
+            <p class="page-subtitle">Asistente Inteligente para Trámites</p>
+            
+            <div class="municipality-info">
+                <h3>¡Bienvenido al Asistente de Licencias!</h3>
+                <p>Te ayudaremos a determinar qué exámenes necesitas realizar según tu situación específica.</p>
+            </div>
+        </div>
+
+        <!-- Asistente Inteligente -->
+        <div class="process-section">
+            <h2 class="section-title">Asistente Inteligente</h2>
+            <p style="text-align: center; color: #64748b; margin-bottom: 40px;">
+                Responde las siguientes preguntas para determinar qué exámenes necesitas realizar.
+            </p>
+
+            <!-- Paso 1: Tipo de Trámite -->
+            <div id="step1" class="assistant-step active">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">❓</div>
+                    <h3>¿Qué tipo de trámite necesitas realizar?</h3>
+                    <p>Selecciona la opción que mejor describa tu situación:</p>
+                    
+                    <div class="option-buttons">
+                        <button class="option-btn" onclick="selectOption('original')">
+                            <i class="bi bi-plus-circle"></i>
+                            <strong>Licencia Original</strong>
+                            <span>Primera vez que tramitas una licencia de conducir</span>
+                        </button>
+                        <button class="option-btn" onclick="selectOption('renewal')">
+                            <i class="bi bi-arrow-repeat"></i>
+                            <strong>Renovación de Licencia</strong>
+                            <span>Ya tienes una licencia y necesitas renovarla</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paso 2: Información Adicional -->
+            <div id="step2" class="assistant-step">
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">📋</div>
+                    <h3 id="step2-title">Información Adicional</h3>
+                    <p id="step2-description">Necesitamos algunos datos adicionales:</p>
+                    
+                    <div class="form-group">
+                        <label for="age">¿Cuál es tu edad?</label>
+                        <input type="number" id="age" min="16" max="100" placeholder="Ej: 25">
+                    </div>
+                    
+                    <div id="expired-section" class="form-group" style="display: none;">
+                        <label for="expired-days">¿Hace cuántos días venció tu licencia?</label>
+                        <input type="number" id="expired-days" min="0" placeholder="Ej: 30">
+                        <small>Si tu licencia no ha vencido, ingresa 0</small>
+                    </div>
+                    
+                    <button class="btn-step" onclick="processInformation()">
+                        <i class="bi bi-arrow-right"></i>
+                        Continuar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Paso 3: Resultado -->
+            <div id="step3" class="assistant-step">
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">✅</div>
+                    <h3>Exámenes Requeridos</h3>
+                    <p id="result-description">Según tu información, necesitas realizar los siguientes exámenes:</p>
+                    
+                    <div id="exams-container" class="exams-container">
+                        <!-- Los exámenes se mostrarán dinámicamente -->
+                    </div>
+                    
+                    <button class="btn-step" onclick="restartAssistant()">
+                        <i class="bi bi-arrow-clockwise"></i>
+                        Realizar Nueva Consulta
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Información General -->
+        <div class="info-section">
+            <h3><i class="bi bi-info-circle"></i> Información Importante</h3>
+            <div class="info-grid">
+                <div class="info-item">
+                    <i class="bi bi-clock"></i>
+                    <h4>Duración</h4>
+                    <p>Cada examen puede completarse en aproximadamente 30-45 minutos</p>
+                </div>
+                <div class="info-item">
+                    <i class="bi bi-shield-check"></i>
+                    <h4>Certificación</h4>
+                    <p>Al aprobar cada examen, recibirás un certificado PDF oficial</p>
+                </div>
+                <div class="info-item">
+                    <i class="bi bi-calendar-check"></i>
+                    <h4>Validez</h4>
+                    <p>Los certificados son válidos por 90 días desde su emisión</p>
+                </div>
+                <div class="info-item">
+                    <i class="bi bi-headset"></i>
+                    <h4>Soporte</h4>
+                    <p>Disponemos de videollamada de soporte durante todo el proceso</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">Municipalidad de San Martín</div>
+            <p>Secretaría de Tránsito y Transporte</p>
+            <p><a href="https://www.sanmartin.gob.ar" target="_blank">www.sanmartin.gob.ar</a></p>
+            <p style="margin-top: 20px; font-size: 14px; opacity: 0.8;">
+                Los contenidos están licenciados bajo Creative Commons Reconocimiento 2.5 Argentina License.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Modal de Validación Biométrica para Agendamiento -->
+    <div class="biometric-modal" id="biometricModal">
+        <div class="biometric-content">
+            <div class="biometric-icon-large" id="biometricIcon">🔒</div>
+            <div class="biometric-text" id="biometricText">Iniciando validación biométrica...</div>
+            
+            <!-- Contenedor de la cámara -->
+            <div class="camera-container" id="cameraContainer" style="display: none;">
+                <div class="camera-feed" id="cameraFeed">
+                    <div>Iniciando cámara...</div>
+                </div>
+                <div class="camera-overlay" id="cameraOverlay"></div>
+            </div>
+            
+            <!-- Estado de la cámara -->
+            <div class="camera-status" id="cameraStatus" style="display: none;">
+                <h4>Estado de la Cámara</h4>
+                <p id="cameraStatusText">Esperando acceso a la cámara...</p>
+            </div>
+            
+            <div class="biometric-progress">
+                <div class="biometric-progress-fill" id="biometricProgress"></div>
+            </div>
+            <div id="biometricStatus">Coloque su dedo en el sensor</div>
+            
+            <!-- Controles de la cámara -->
+            <div class="camera-controls" id="cameraControls" style="display: none;">
+                <button class="camera-btn" onclick="startCamera()">Activar Cámara</button>
+                <button class="camera-btn secondary" onclick="stopCamera()">Detener Cámara</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Agendar Cita -->
+    <div id="appointmentModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="hideAppointmentModal()">&times;</span>
+            <h3 class="titulo">📅 Agendar Cita - Renovación de Registro</h3>
+            
+            <div id="appointmentMessage" class="hidden p-4 rounded-lg mb-4"></div>
+            
+            <!-- Formulario inicial con selectores -->
+            <div id="appointmentFormInitial">
+                <div class="selectors-container">
+                    <div class="especialidad-selector">
+                        <label class="selector-label">Especialidad:</label>
+                        <div id="especialidadCombo" class="especialidad-cards">
+                            <!-- Las especialidades se cargarán dinámicamente según el contexto -->
+                        </div>
+                        <input type="hidden" id="especialidadComboValue" required>
+                    </div>
+                    
+                    <div class="sucursal-selector">
+                        <label class="selector-label">Sucursal:</label>
+                        <div id="sucuCombo" class="sucursal-cards">
+                            <div class="loading-card">
+                                <i class="bi bi-arrow-clockwise spin"></i>
+                                <span>Cargando sucursales...</span>
+                            </div>
+                        </div>
+                        <input type="hidden" id="sucuComboValue" required>
+                    </div>
+                    
+                    <div class="sala-selector">
+                        <label class="selector-label">Agenda:</label>
+                        <div id="salaCombo" class="sala-cards">
+                            <div class="loading-card">
+                                <span>Selecciona especialidad y sucursal para ver las agendas disponibles</span>
+                            </div>
+                        </div>
+                        <input type="hidden" id="salaComboValue" required>
+                    </div>
+                </div>
+                
+                <!-- Bloque de fecha -->
+                <div id="bloqueFecha" style="display: none;">
+                    <label for="fecha">Seleccione una fecha: </label>
+                    <input type="text" id="fecha" placeholder="Elige una fecha" />
+                </div>
+                
+                <!-- Resultados de disponibilidad -->
+                <div id="resultados" class="flex flex-wrap gap-3 justify-center my-4"></div>
+                
+                <!-- Formulario de datos del paciente -->
+                <div id="formularioDatos" style="display: none;">
+                    <h4>Datos del Paciente</h4>
+                    <form id="reservaForm" class="space-y-4" onsubmit="return handleAppointmentSubmit(event)">
+                        <div class="form-row">
+                            <div class="form-col">
+                                <label>Nombre</label>
+                                <input type="text" name="firstName" required class="input-field" />
+                            </div>
+                            <div class="form-col">
+                                <label>Apellido</label>
+                                <input type="text" name="lastName" required class="input-field" />
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-col">
+                                <label>DNI</label>
+                                <input type="text" name="dni" required class="input-field" />
+                            </div>
+                            <div class="form-col">
+                                <label>Teléfono</label>
+                                <input type="tel" name="phone" required class="input-field" />
+                            </div>
+                        </div>
+                        <div class="form-col-full">
+                            <label>Email</label>
+                            <input type="email" name="email" required class="input-field" />
+                        </div>
+                        <div class="form-col-full">
+                            <label>Motivo de la consulta</label>
+                            <textarea name="motivo" required class="input-field" rows="3" placeholder="Describe brevemente el motivo de tu renovación de registro"></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn-secondary" onclick="hideAppointmentModal()">Cancelar</button>
+                            <button type="submit" class="btn-primary" id="appointmentSubmitBtn">
+                                <i class="bi bi-check-lg"></i>
+                                Confirmar Cita
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Resultado final -->
+                <div id="final"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Variables globales del asistente
+        let userData = {
+            type: null, // 'original' o 'renewal'
+            age: null,
+            expiredDays: null
+        };
+
+        // Función para seleccionar tipo de trámite
+        function selectOption(type) {
+            userData.type = type;
+            
+            // Actualizar el paso 2 según el tipo
+            const step2Title = document.getElementById('step2-title');
+            const step2Description = document.getElementById('step2-description');
+            const expiredSection = document.getElementById('expired-section');
+            
+            if (type === 'original') {
+                step2Title.textContent = 'Información para Licencia Original';
+                step2Description.textContent = 'Para una licencia original necesitamos verificar tu edad:';
+                expiredSection.style.display = 'none';
+            } else {
+                step2Title.textContent = 'Información para Renovación';
+                step2Description.textContent = 'Para la renovación necesitamos algunos datos adicionales:';
+                expiredSection.style.display = 'block';
+            }
+            
+            // Mostrar paso 2
+            showStep(2);
+        }
+
+        // Función para procesar la información
+        function processInformation() {
+            const age = parseInt(document.getElementById('age').value);
+            const expiredDays = userData.type === 'renewal' ? 
+                parseInt(document.getElementById('expired-days').value) || 0 : 0;
+            
+            // Validar datos
+            if (!age || age < 16 || age > 100) {
+                alert('Por favor ingresa una edad válida (entre 16 y 100 años)');
+                return;
+            }
+            
+            if (userData.type === 'renewal' && expiredDays < 0) {
+                alert('Los días de vencimiento no pueden ser negativos');
+                return;
+            }
+            
+            userData.age = age;
+            userData.expiredDays = expiredDays;
+            
+            // Determinar exámenes requeridos
+            const requiredExams = determineRequiredExams();
+            
+            // Mostrar resultados
+            showResults(requiredExams);
+        }
+
+        // Función para determinar exámenes requeridos
+        function determineRequiredExams() {
+            const exams = [];
+            
+            if (userData.type === 'original') {
+                // Licencia original: siempre necesita ambos exámenes
+                exams.push({
+                    type: 'psychological',
+                    title: 'Evaluación Psicológica',
+                    description: 'Evaluación de capacidades cognitivas y aptitud para conducir',
+                    icon: '🧠',
+                    url: 'examen-psicologico.html'
+                });
+                exams.push({
+                    type: 'theoretical',
+                    title: 'Examen Teórico',
+                    description: 'Evaluación de conocimientos sobre normas de tránsito y seguridad vial',
+                    icon: '📚',
+                    url: 'index-educacion-vialinde.html'
+                });
+            } else if (userData.type === 'renewal') {
+                // Renovación: depende de la edad y días de vencimiento
+                if (userData.age >= 65) {
+                    // 65+ años: solo examen psicológico
+                    exams.push({
+                        type: 'psychological',
+                        title: 'Evaluación Psicológica',
+                        description: 'Evaluación obligatoria para mayores de 65 años',
+                        icon: '🧠',
+                        url: 'examen-psicologico.html'
+                    });
+                } else if (userData.expiredDays > 90) {
+                    // Vencida hace más de 90 días: ambos exámenes
+                    exams.push({
+                        type: 'psychological',
+                        title: 'Evaluación Psicológica',
+                        description: 'Evaluación requerida por licencia vencida hace más de 90 días',
+                        icon: '🧠',
+                        url: 'examen-psicologico.html'
+                    });
+                    exams.push({
+                        type: 'theoretical',
+                        title: 'Examen Teórico',
+                        description: 'Evaluación requerida por licencia vencida hace más de 90 días',
+                        icon: '📚',
+                        url: 'index-educacion-vialinde.html'
+                    });
+                } else {
+                    // Renovación normal: ningún examen requerido
+                    exams.push({
+                        type: 'appointment',
+                        title: 'Agendar Renovación de Registro',
+                        description: 'Tu renovación no requiere exámenes adicionales. Puedes agendar tu cita para renovar directamente.',
+                        icon: '📅',
+                        url: null,
+                        action: 'schedule_appointment'
+                    });
+                }
+            }
+            
+            return exams;
+        }
+
+        // Función para mostrar resultados
+        function showResults(exams) {
+            const resultDescription = document.getElementById('result-description');
+            const examsContainer = document.getElementById('exams-container');
+            
+            // Actualizar descripción
+            if (exams.length === 1 && (exams[0].type === 'none' || exams[0].type === 'appointment')) {
+                resultDescription.textContent = '¡Excelente! Según tu información:';
+            } else {
+                resultDescription.textContent = 'Según tu información, necesitas realizar los siguientes exámenes:';
+            }
+            
+            // Generar tarjetas de exámenes
+            examsContainer.innerHTML = '';
+            exams.forEach(exam => {
+                const examCard = document.createElement('div');
+                examCard.className = 'exam-card';
+                
+                if (exam.url) {
+                    examCard.innerHTML = `
+                        <div class="exam-icon">${exam.icon}</div>
+                        <div class="exam-info" style="flex: 1;">
+                            <h4>${exam.title}</h4>
+                            <p>${exam.description}</p>
+                        </div>
+                        <a href="${exam.url}" class="exam-btn">
+                            <i class="bi bi-play-circle"></i>
+                            Iniciar Examen
+                        </a>
+                    `;
+                } else if (exam.action === 'schedule_appointment') {
+                    examCard.innerHTML = `
+                        <div class="exam-icon">${exam.icon}</div>
+                        <div class="exam-info" style="flex: 1;">
+                            <h4>${exam.title}</h4>
+                            <p>${exam.description}</p>
+                            
+                            <!-- Requisitos para Renovación -->
+                            <div class="requirements-section">
+                                <h5 class="requirements-title">
+                                    <i class="bi bi-clipboard-check"></i>
+                                    Requisitos
+                                </h5>
+                                <div class="requirements-content">
+                                    <div class="requirements-list">
+                                        <div class="requirement-item">
+                                            <div class="requirement-icon">🆔</div>
+                                            <div class="requirement-text">
+                                                <strong>DNI</strong> con domicilio en San Martín, original y copia.
+                                            </div>
+                                        </div>
+                                        <div class="requirement-item">
+                                            <div class="requirement-icon">📄</div>
+                                            <div class="requirement-text">
+                                                <strong>Licencia</strong>, original y copia.
+                                            </div>
+                                        </div>
+                                        <div class="requirement-item">
+                                            <div class="requirement-icon">🔢</div>
+                                            <div class="requirement-text">
+                                                <strong>CUIL</strong>, si no figura en el DNI.
+                                            </div>
+                                        </div>
+                                        <div class="requirement-item">
+                                            <div class="requirement-icon">📋</div>
+                                            <div class="requirement-text">
+                                                <strong>Certificado de legalidad</strong>, si proviene de otro municipio o CABA y no figura en sistema provincial de emisión de licencias de conducir.
+                                            </div>
+                                        </div>
+                                        <div class="requirement-item">
+                                            <div class="requirement-icon">📚</div>
+                                            <div class="requirement-text">
+                                                <strong>Saber leer y escribir</strong>, Ley Nº 24.449.
+                                            </div>
+                                        </div>
+                                        <div class="requirement-item">
+                                            <div class="requirement-icon">💰</div>
+                                            <div class="requirement-text">
+                                                Se deberán abonar las <strong>boletas CENAT y CEPAT en EFECTIVO</strong> en la Central Unificada de Tránsito al momento de realizar el trámite.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="requirements-note">
+                                        <i class="bi bi-info-circle"></i>
+                                        <span><strong>Importante:</strong> Si cambió de jurisdicción, debe realizar el cambio de licencia en el nuevo Municipio antes de los 90 días, caso contrario deberá rendir todos los exámenes (psicofísico, teórico y práctico) al momento de la renovación Ley N° 24.449, Título N° 3, Capítulo N° 2, Artículo N° 18.</span>
+                                    </div>
+                                    
+                                    <div class="requirements-special">
+                                        <h6 class="special-title">
+                                            <i class="bi bi-person-plus"></i>
+                                            En caso de ser mayor de 65 años:
+                                        </h6>
+                                        <ul class="special-list">
+                                            <li>Realizar la evaluación psicofísica y un exámen teórico-práctico.</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="requirements-special">
+                                        <h6 class="special-title">
+                                            <i class="bi bi-truck"></i>
+                                            Licencia para Clase C y E:
+                                        </h6>
+                                        <ul class="special-list">
+                                            <li>Todos los requisitos anteriores.</li>
+                                            <li>Certificado de antecedentes penales.</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="requirements-special">
+                                        <h6 class="special-title">
+                                            <i class="bi bi-bus-front"></i>
+                                            Licencia para la Clase D:
+                                        </h6>
+                                        <ul class="special-list">
+                                            <li>Todos los requisitos anteriores.</li>
+                                            <li>Carpeta médica.</li>
+                                            <li>Certificado de antecedentes penales.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="exam-btn" onclick="agendarRenovacionRegistro()">
+                            <i class="bi bi-calendar-check"></i>
+                            Agendar Cita
+                        </button>
+                    `;
+                } else {
+                    examCard.innerHTML = `
+                        <div class="exam-icon">${exam.icon}</div>
+                        <div class="exam-info" style="flex: 1;">
+                            <h4>${exam.title}</h4>
+                            <p>${exam.description}</p>
+                        </div>
+                    `;
+                }
+                
+                examsContainer.appendChild(examCard);
+            });
+            
+            // Mostrar paso 3
+            showStep(3);
+        }
+
+        // Función para mostrar un paso específico
+        function showStep(stepNumber) {
+            // Ocultar todos los pasos
+            document.querySelectorAll('.assistant-step').forEach(step => {
+                step.classList.remove('active');
+            });
+            
+            // Mostrar el paso solicitado
+            document.getElementById(`step${stepNumber}`).classList.add('active');
+        }
+
+        // Función para reiniciar el asistente
+        function restartAssistant() {
+            // Limpiar datos
+            userData = {
+                type: null,
+                age: null,
+                expiredDays: null
+            };
+            
+            // Limpiar formularios
+            document.getElementById('age').value = '';
+            document.getElementById('expired-days').value = '';
+            
+            // Volver al paso 1
+            showStep(1);
+        }
+
+        // Inicializar asistente
+        document.addEventListener('DOMContentLoaded', function() {
+            showStep(1);
+            // Configurar fecha mínima para el input de fecha
+            const today = new Date();
+            const tomorrow = new Date(today);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            document.getElementById('appointmentDate').min = tomorrow.toISOString().split('T')[0];
+        });
+
+        // ========================================
+        // FUNCIONALIDAD DE VALIDACIÓN BIOMÉTRICA Y AGENDAMIENTO
+        // ========================================
+
+        let stream = null;
+        let videoElement = null;
+
+        // Función para iniciar validación biométrica para agendamiento
+        function startBiometricValidationForAppointment() {
+            console.log('🔒 Iniciando validación biométrica para agendamiento...');
+            showBiometricModal('Iniciando validación biométrica...', 'Coloque su dedo en el sensor', '🔒');
+            
+            // Mostrar controles de cámara después de un breve delay
+            setTimeout(() => {
+                document.getElementById('cameraContainer').style.display = 'block';
+                document.getElementById('cameraStatus').style.display = 'block';
+                document.getElementById('cameraControls').style.display = 'flex';
+                document.getElementById('biometricText').textContent = 'Se requiere acceso a la cámara para validación facial';
+            }, 1000);
+        }
+
+        // Función para agendar renovación de registro (copia exacta de agendarPruebaManejo)
+        function agendarRenovacionRegistro() {
+            console.log('📅 Agendando renovación de registro...');
+            
+            // Mostrar modal de cita con especialidad renovación presencial
+            showAppointmentModal('renovacion-presencial');
+        }
+
+        // Función para mostrar modal biométrico
+        function showBiometricModal(text, status, icon) {
+            document.getElementById('biometricModal').classList.add('active');
+            document.getElementById('biometricText').textContent = text;
+            document.getElementById('biometricStatus').textContent = status;
+            document.getElementById('biometricIcon').textContent = icon;
+            document.getElementById('biometricProgress').style.width = '0%';
+            
+            // Ocultar elementos de cámara inicialmente
+            document.getElementById('cameraContainer').style.display = 'none';
+            document.getElementById('cameraStatus').style.display = 'none';
+            document.getElementById('cameraControls').style.display = 'none';
+        }
+
+        // Función para iniciar cámara
+        async function startCamera() {
+            try {
+                // Solicitar acceso a la cámara
+                stream = await navigator.mediaDevices.getUserMedia({ 
+                    video: { 
+                        width: { ideal: 400 },
+                        height: { ideal: 300 },
+                        facingMode: 'user'
+                    } 
+                });
+                
+                // Crear elemento de video
+                videoElement = document.createElement('video');
+                videoElement.srcObject = stream;
+                videoElement.autoplay = true;
+                videoElement.playsInline = true;
+                videoElement.style.width = '100%';
+                videoElement.style.height = '100%';
+                videoElement.style.objectFit = 'cover';
+                
+                // Reemplazar el contenido del feed de la cámara
+                const cameraFeed = document.getElementById('cameraFeed');
+                cameraFeed.innerHTML = '';
+                cameraFeed.appendChild(videoElement);
+                
+                // Actualizar estado
+                document.getElementById('cameraStatusText').textContent = 'Cámara activa - Posicione su rostro en el círculo';
+                document.getElementById('biometricIcon').textContent = '👁️';
+                
+                // Simular proceso de escaneo facial
+                setTimeout(() => {
+                    startFacialScan();
+                }, 2000);
+                
+            } catch (error) {
+                console.error('Error al acceder a la cámara:', error);
+                document.getElementById('cameraStatusText').textContent = 'Error al acceder a la cámara. Verifique los permisos.';
+                document.getElementById('biometricIcon').textContent = '❌';
+            }
+        }
+
+        // Función para detener cámara
+        function stopCamera() {
+            if (stream) {
+                stream.getTracks().forEach(track => track.stop());
+                stream = null;
+            }
+            
+            if (videoElement) {
+                videoElement.remove();
+                videoElement = null;
+            }
+            
+            // Restaurar estado inicial
+            const cameraFeed = document.getElementById('cameraFeed');
+            cameraFeed.innerHTML = '<div>Cámara detenida</div>';
+            document.getElementById('cameraStatusText').textContent = 'Cámara detenida';
+            document.getElementById('biometricIcon').textContent = '🔒';
+        }
+
+        // Función para iniciar escaneo facial
+        function startFacialScan() {
+            document.getElementById('biometricIcon').textContent = '👁️';
+            document.getElementById('biometricText').textContent = 'Escaneando rostro...';
+            document.getElementById('biometricStatus').textContent = 'Mantenga su rostro centrado en el círculo';
+            
+            // Simular progreso del escaneo
+            let progress = 0;
+            const scanInterval = setInterval(() => {
+                progress += 10;
+                updateBiometricProgress(progress);
+                
+                if (progress >= 100) {
+                    clearInterval(scanInterval);
+                    completeBiometricValidation();
+                }
+            }, 200);
+        }
+
+        // Función para completar validación biométrica
+        function completeBiometricValidation() {
+            document.getElementById('biometricIcon').textContent = '✅';
+            document.getElementById('biometricText').textContent = '¡Validación biométrica exitosa!';
+            document.getElementById('biometricStatus').textContent = 'Identidad verificada correctamente';
+            
+            // Detener cámara
+            stopCamera();
+            
+            // Ocultar controles de cámara
+            document.getElementById('cameraContainer').style.display = 'none';
+            document.getElementById('cameraStatus').style.display = 'none';
+            document.getElementById('cameraControls').style.display = 'none';
+            
+            // Mostrar modal de agendamiento después de un delay
+            setTimeout(() => {
+                hideBiometricModal();
+                showAppointmentModal();
+            }, 2000);
+        }
+
+        // Función para actualizar progreso biométrico
+        function updateBiometricProgress(percentage) {
+            document.getElementById('biometricProgress').style.width = percentage + '%';
+        }
+
+        // Función para ocultar modal biométrico
+        function hideBiometricModal() {
+            document.getElementById('biometricModal').classList.remove('active');
+            // Detener cámara si está activa
+            if (stream) {
+                stopCamera();
+            }
+        }
+
+        // Función para mostrar modal de agendamiento (copia exacta de examen-psicologico.html)
+        function showAppointmentModal(especialidad = 'renovacion-presencial') {
+            console.log(`📅 Abriendo modal de agendar cita para: ${especialidad}`);
+            const modal = document.getElementById('appointmentModal');
+            modal.style.display = 'block';
+            document.getElementById('appointmentMessage').classList.add('hidden');
+            
+            // Configurar la especialidad seleccionada
+            window.currentEspecialidad = especialidad;
+            
+            // Actualizar título según especialidad
+            const titulo = document.querySelector('#appointmentModal .titulo');
+            if (titulo) {
+                switch (especialidad) {
+                    case 'oculista':
+                        titulo.innerHTML = '👁️ Agendar Cita - Oculista';
+                        break;
+                    case 'prueba-manejo':
+                        titulo.innerHTML = '🚗 Agendar Cita - Prueba de Manejo';
+                        break;
+                    case 'renovacion-presencial':
+                        titulo.innerHTML = '📅 Agendar Cita - Renovación Presencial';
+                        break;
+                    default:
+                        titulo.innerHTML = '📅 Agendar Cita - Psicólogo';
+                }
+            }
+            
+            // Resetear formularios
+            document.getElementById('appointmentFormInitial').style.display = 'block';
+            document.getElementById('formularioDatos').style.display = 'none';
+            document.getElementById('bloqueFecha').style.display = 'none';
+            document.getElementById('resultados').innerHTML = '';
+            document.getElementById('final').innerHTML = '';
+            
+            // Cargar combos automáticamente con la especialidad correcta
+            setTimeout(() => {
+                cargarCombosDesdeAPI(especialidad);
+            }, 100);
+            
+            console.log(`✅ Modal de cita abierto correctamente para ${especialidad}`);
+        }
+
+        // Función para ocultar modal de agendamiento (copia exacta de examen-psicologico.html)
+        function hideAppointmentModal() {
+            console.log('📅 Cerrando modal de agendar cita...');
+            const modal = document.getElementById('appointmentModal');
+            modal.style.display = 'none';
+            console.log('✅ Modal de cita cerrado correctamente');
+        }
+
+        // Función para cargar combos desde API (copia exacta de examen-psicologico.html)
+        async function cargarCombosDesdeAPI(especialidad) {
+            console.log(`🔄 Cargando combos para especialidad: ${especialidad}`);
+            
+            try {
+                // Solo mostrar Renovación Presencial como especialidad
+                const especialidades = [
+                    { id: 'renovacion-presencial', nombre: 'Renovación Presencial', icono: '📅' }
+                ];
+                
+                // Cargar especialidades
+                cargarEspecialidades(especialidades, especialidad);
+                
+                // Simular carga de sucursales
+                setTimeout(() => {
+                    const sucursales = [
+                        { id: 'sucursal-1', nombre: 'Sucursal Centro', direccion: 'Av. San Martín 1234' },
+                        { id: 'sucursal-2', nombre: 'Sucursal Norte', direccion: 'Av. Libertador 5678' },
+                        { id: 'sucursal-3', nombre: 'Sucursal Sur', direccion: 'Av. Rivadavia 9012' }
+                    ];
+                    cargarSucursales(sucursales);
+                }, 500);
+                
+            } catch (error) {
+                console.error('Error cargando combos:', error);
+            }
+        }
+
+        // Función para cargar especialidades
+        function cargarEspecialidades(especialidades, especialidadSeleccionada) {
+            const container = document.getElementById('especialidadCombo');
+            container.innerHTML = '';
+            
+            especialidades.forEach(esp => {
+                const card = document.createElement('div');
+                card.className = `especialidad-card ${esp.id === especialidadSeleccionada ? 'selected' : ''}`;
+                card.onclick = () => seleccionarEspecialidad(esp.id);
+                card.innerHTML = `
+                    <div class="text-2xl mb-2">${esp.icono}</div>
+                    <div class="font-semibold">${esp.nombre}</div>
+                `;
+                container.appendChild(card);
+            });
+            
+            // Seleccionar automáticamente la especialidad
+            if (especialidadSeleccionada) {
+                document.getElementById('especialidadComboValue').value = especialidadSeleccionada;
+            }
+        }
+
+        // Función para cargar sucursales
+        function cargarSucursales(sucursales) {
+            const container = document.getElementById('sucuCombo');
+            container.innerHTML = '';
+            
+            sucursales.forEach(suc => {
+                const card = document.createElement('div');
+                card.className = 'sucursal-card';
+                card.onclick = () => seleccionarSucursal(suc.id);
+                card.innerHTML = `
+                    <div class="font-semibold">${suc.nombre}</div>
+                    <div class="text-sm text-gray-600">${suc.direccion}</div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Función para seleccionar especialidad
+        function seleccionarEspecialidad(especialidadId) {
+            console.log(`Seleccionada especialidad: ${especialidadId}`);
+            
+            // Actualizar UI
+            document.querySelectorAll('.especialidad-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            event.target.closest('.especialidad-card').classList.add('selected');
+            
+            // Guardar valor
+            document.getElementById('especialidadComboValue').value = especialidadId;
+            
+            // Cargar salas para esta especialidad
+            cargarSalas(especialidadId);
+        }
+
+        // Función para seleccionar sucursal
+        function seleccionarSucursal(sucursalId) {
+            console.log(`Seleccionada sucursal: ${sucursalId}`);
+            
+            // Actualizar UI
+            document.querySelectorAll('.sucursal-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            event.target.closest('.sucursal-card').classList.add('selected');
+            
+            // Guardar valor
+            document.getElementById('sucuComboValue').value = sucursalId;
+        }
+
+        // Función para cargar salas
+        function cargarSalas(especialidadId) {
+            const container = document.getElementById('salaCombo');
+            container.innerHTML = '<div class="loading-card"><span>Cargando agendas disponibles...</span></div>';
+            
+            setTimeout(() => {
+                const salas = [
+                    { id: 'sala-1', nombre: 'Agenda Matutina', horario: '08:00 - 12:00' },
+                    { id: 'sala-2', nombre: 'Agenda Vespertina', horario: '14:00 - 18:00' }
+                ];
+                
+                container.innerHTML = '';
+                salas.forEach(sala => {
+                    const card = document.createElement('div');
+                    card.className = 'sala-card';
+                    card.onclick = () => seleccionarSala(sala.id);
+                    card.innerHTML = `
+                        <div class="font-semibold">${sala.nombre}</div>
+                        <div class="text-sm text-gray-600">${sala.horario}</div>
+                    `;
+                    container.appendChild(card);
+                });
+            }, 500);
+        }
+
+        // Función para seleccionar sala
+        function seleccionarSala(salaId) {
+            console.log(`Seleccionada sala: ${salaId}`);
+            
+            // Actualizar UI
+            document.querySelectorAll('.sala-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            event.target.closest('.sala-card').classList.add('selected');
+            
+            // Guardar valor
+            document.getElementById('salaComboValue').value = salaId;
+            
+            // Mostrar selector de fecha
+            document.getElementById('bloqueFecha').style.display = 'block';
+            
+            // Inicializar datepicker
+            inicializarDatepicker();
+        }
+
+        // Función para inicializar datepicker
+        function inicializarDatepicker() {
+            const fechaInput = document.getElementById('fecha');
+            
+            // Configurar fecha mínima (mañana)
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            fechaInput.min = tomorrow.toISOString().split('T')[0];
+            
+            // Simular disponibilidad de fechas
+            fechaInput.addEventListener('change', function() {
+                const fechaSeleccionada = this.value;
+                if (fechaSeleccionada) {
+                    mostrarHorariosDisponibles(fechaSeleccionada);
+                }
+            });
+        }
+
+        // Función para mostrar horarios disponibles
+        function mostrarHorariosDisponibles(fecha) {
+            const resultados = document.getElementById('resultados');
+            resultados.innerHTML = '<div class="loading-card"><span>Cargando horarios disponibles...</span></div>';
+            
+            setTimeout(() => {
+                const horarios = [
+                    { hora: '09:00', disponible: true },
+                    { hora: '10:00', disponible: true },
+                    { hora: '11:00', disponible: false },
+                    { hora: '14:00', disponible: true },
+                    { hora: '15:00', disponible: true },
+                    { hora: '16:00', disponible: false }
+                ];
+                
+                resultados.innerHTML = '';
+                horarios.forEach(horario => {
+                    const boton = document.createElement('button');
+                    boton.className = `px-4 py-2 rounded-lg border-2 transition-all ${
+                        horario.disponible 
+                            ? 'border-blue-500 text-blue-500 hover:bg-blue-50' 
+                            : 'border-gray-300 text-gray-400 cursor-not-allowed'
+                    }`;
+                    boton.textContent = horario.hora;
+                    boton.disabled = !horario.disponible;
+                    boton.onclick = horario.disponible ? () => seleccionarHorario(horario.hora) : null;
+                    resultados.appendChild(boton);
+                });
+            }, 500);
+        }
+
+        // Función para seleccionar horario
+        function seleccionarHorario(horario) {
+            console.log(`Seleccionado horario: ${horario}`);
+            
+            // Mostrar formulario de datos
+            document.getElementById('formularioDatos').style.display = 'block';
+            
+            // Scroll al formulario
+            document.getElementById('formularioDatos').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Función para manejar el envío del formulario de cita (copia exacta de examen-psicologico.html)
+        async function handleAppointmentSubmit(event) {
+            event.preventDefault();
+            console.log('📝 Enviando formulario de cita...');
+            
+            const formData = new FormData(event.target);
+            const datos = {
+                firstName: formData.get('firstName'),
+                lastName: formData.get('lastName'),
+                dni: formData.get('dni'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                motivo: formData.get('motivo')
+            };
+
+            console.log('📊 Datos del formulario:', datos);
+            console.log('📅 Fecha y duración:', window.fechaSeleccionadaGlobal, window.duracionSeleccionadaGlobal);
+
+            try {
+                // Crear la cita
+                await crearCita(window.fechaSeleccionadaGlobal, window.duracionSeleccionadaGlobal, datos);
+            } catch (error) {
+                console.error('❌ Error al crear la cita:', error);
+            }
+        }
+
+        // Función para crear la cita (copia exacta de examen-psicologico.html)
+        async function crearCita(fechaInicio, duracionMinutos, datosCliente) {
+            const resultados = document.getElementById("final");
+            const submitBtn = document.getElementById('appointmentSubmitBtn');
+            
+            // Cambiar estado del botón
+            submitBtn.innerHTML = '<i class="bi bi-arrow-clockwise spin"></i> Creando cita...';
+            submitBtn.disabled = true;
+
+            try {
+                const startDate = new Date(fechaInicio);
+                const endDate = new Date(startDate.getTime() + duracionMinutos * 60000);
+
+                const pad = n => n.toString().padStart(2, '0');
+                
+                function formatISO(date) {
+                    const yyyy = date.getFullYear();
+                    const MM = pad(date.getMonth() + 1);
+                    const dd = pad(date.getDate());
+                    const hh = pad(date.getHours());
+                    const mm = pad(date.getMinutes());
+                    return `${yyyy}-${MM}-${dd}T${hh}:${mm}:00-0300`;
+                }
+
+                const startAt = formatISO(startDate);
+                const endAt = formatISO(endDate);
+
+                const data = {
+                    branch: { id: document.getElementById("sucuComboValue").value },
+                    schedule: { id: document.getElementById("salaComboValue").value },
+                    startAt: startAt,
+                    endAt: endAt,
+                    customer: {
+                        firstName: datosCliente.firstName,
+                        lastName: datosCliente.lastName,
+                        dni: datosCliente.dni,
+                        email: datosCliente.email
+                    },
+                    reason: datosCliente.motivo
+                };
+
+                console.log('📤 Enviando datos al API:', data);
+
+                const response = await fetch("https://citas2.debmedia.com/api/v2/appointments", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "x-api-token": "GoEH5j9TMjWhWojrOLKT8qYEXbPlMH7atIo8Nsxh"
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                const resultado = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(`Error ${response.status}: ${resultado.message || JSON.stringify(resultado)}`);
+                }
+
+                console.log('✅ Cita creada exitosamente:', resultado);
+
+                // Ocultar formulario y mostrar resultado
+                document.getElementById("formularioDatos").style.display = "none";
+                resultados.innerHTML = `
+                    <div class="success-card">
+                        <div class="success-icon">✅</div>
+                        <h3 class="success-title">¡Cita Agendada Exitosamente!</h3>
+                        <div class="success-details">
+                            <p><strong>Fecha:</strong> ${startDate.toLocaleDateString('es-AR')}</p>
+                            <p><strong>Horario:</strong> ${startDate.toLocaleTimeString('es-AR', {hour: '2-digit', minute: '2-digit'})}</p>
+                            <p><strong>Paciente:</strong> ${datosCliente.firstName} ${datosCliente.lastName}</p>
+                            <p><strong>DNI:</strong> ${datosCliente.dni}</p>
+                            <p><strong>Email:</strong> ${datosCliente.email}</p>
+                        </div>
+                        <div class="success-message">
+                            <p>Te enviaremos un email de confirmación con los detalles de tu cita.</p>
+                        </div>
+                    </div>
+                `;
+
+            } catch (error) {
+                console.error('❌ Error al crear la cita:', error);
+                
+                // Restaurar botón
+                submitBtn.innerHTML = '<i class="bi bi-check-lg"></i> Confirmar Cita';
+                submitBtn.disabled = false;
+                
+                // Mostrar error
+                resultados.innerHTML = `
+                    <div class="error-card">
+                        <div class="error-icon">❌</div>
+                        <h3 class="error-title">Error al Agendar Cita</h3>
+                        <p class="error-message">${error.message}</p>
+                        <button class="btn-primary" onclick="document.getElementById('formularioDatos').style.display = 'block'; document.getElementById('final').innerHTML = '';">
+                            Intentar Nuevamente
+                        </button>
+                    </div>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
