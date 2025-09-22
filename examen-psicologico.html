@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>San Martín - Evaluación Psicológica Complementaria</title>
+    <title>Evaluación Psicológica Complementaria</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://debq2.debmedia.com/api/cobrowse/widget/5d8b569d2466aa0cd5b8b4756829f014"></script>
   
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
@@ -28,8 +28,8 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: #333;
             line-height: 1.6;
             min-height: 100vh;
@@ -60,33 +60,23 @@
             height: 120px;
             margin: 0 auto 30px;
             background: white;
-            border-radius: 12px;
+            border-radius: 50%;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 10px 30px rgba(30, 58, 138, 0.3);
-            padding: 20px;
+            box-shadow: 0 10px 30px rgba(134, 61, 255, 0.3);
+            padding: 10px;
         }
 
-        .logo-arc {
-            width: 60px;
-            height: 8px;
-            background: #1e3a8a;
-            border-radius: 50px 50px 0 0;
-            margin-bottom: 8px;
-        }
-
-        .logo-text {
-            color: #1e3a8a;
-            font-size: 16px;
-            font-weight: 700;
-            line-height: 1;
-            text-align: center;
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 50%;
         }
 
         .header h1 {
-            color: #1e3a8a;
+            color: #863DFF;
             font-size: 2.5rem;
             margin-bottom: 15px;
             font-weight: 700;
@@ -108,7 +98,7 @@
 
         .nav-btn {
             background: rgba(134, 61, 255, 0.1);
-            color: #1e3a8a;
+            color: #863DFF;
             border: 2px solid rgba(134, 61, 255, 0.3);
             padding: 12px 24px;
             border-radius: 8px;
@@ -124,7 +114,7 @@
             background: rgba(134, 61, 255, 0.2);
             border-color: rgba(134, 61, 255, 0.5);
             transform: translateY(-2px);
-            color: #1e3a8a;
+            color: #863DFF;
             text-decoration: none;
         }
 
@@ -149,14 +139,14 @@
 
         .info-box {
             background: #f8f9fa;
-            border-left: 4px solid #1e3a8a;
+            border-left: 4px solid #863DFF;
             padding: 20px;
             margin: 20px 0;
             border-radius: 4px;
         }
 
         .info-box h3 {
-            color: #1e3a8a;
+            color: #863DFF;
             margin-bottom: 10px;
             font-weight: 600;
         }
@@ -172,7 +162,7 @@
         }
 
         .start-btn {
-            background: #1e3a8a;
+            background: #863DFF;
             color: white;
             border: none;
             padding: 15px 40px;
@@ -195,7 +185,7 @@
             border-radius: 8px;
             padding: 25px;
             margin-bottom: 25px;
-            border-left: 4px solid #1e3a8a;
+            border-left: 4px solid #863DFF;
             display: none;
         }
 
@@ -239,12 +229,12 @@
         }
 
         .option:hover {
-            border-color: #1e3a8a;
+            border-color: #863DFF;
             background: #f0f0ff;
         }
 
         .option.selected {
-            border-color: #1e3a8a;
+            border-color: #863DFF;
             background: #f0f0ff;
         }
 
@@ -280,7 +270,7 @@
         }
 
         .nav-btn.primary {
-            background: #1e3a8a;
+            background: #863DFF;
         }
 
         .nav-btn.primary:hover {
@@ -298,7 +288,7 @@
 
         .progress-fill {
             height: 100%;
-            background: #1e3a8a;
+            background: #863DFF;
             width: 0%;
             transition: width 0.3s ease;
         }
@@ -323,7 +313,7 @@
         }
 
         .restart-btn {
-            background: #1e3a8a;
+            background: #863DFF;
             color: white;
             border: none;
             padding: 15px 40px;
@@ -420,7 +410,7 @@
 
         .biometric-progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, #1e3a8a, #3b82f6);
+            background: linear-gradient(90deg, #863DFF, #9f5fff);
             width: 0%;
             transition: width 0.3s ease;
         }
@@ -487,7 +477,7 @@
         .especialidad-card:hover,
         .sucursal-card:hover,
         .sala-card:hover {
-            border-color: #1e3a8a;
+            border-color: #863DFF;
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(134, 61, 255, 0.1);
         }
@@ -495,7 +485,7 @@
         .especialidad-card.selected,
         .sucursal-card.selected,
         .sala-card.selected {
-            border-color: #1e3a8a;
+            border-color: #863DFF;
             background: linear-gradient(135deg, #f8f9ff 0%, #f0f2ff 100%);
             box-shadow: 0 4px 15px rgba(134, 61, 255, 0.2);
         }
@@ -504,7 +494,7 @@
         .sucursal-icon,
         .sala-icon {
             font-size: 1.5rem;
-            color: #1e3a8a;
+            color: #863DFF;
             width: 40px;
             height: 40px;
             display: flex;
@@ -643,15 +633,15 @@
             transform: translate(-50%, -50%);
             width: 150px;
             height: 150px;
-            border: 3px solid #1e3a8a;
+            border: 3px solid #863DFF;
             border-radius: 50%;
             animation: scan 2s infinite;
         }
 
         @keyframes scan {
-            0% { border-color: #1e3a8a; }
-            50% { border-color: #3b82f6; }
-            100% { border-color: #1e3a8a; }
+            0% { border-color: #863DFF; }
+            50% { border-color: #9f5fff; }
+            100% { border-color: #863DFF; }
         }
 
         .camera-status {
@@ -688,7 +678,7 @@
         }
 
         .camera-btn:not(.secondary) {
-            background: #1e3a8a;
+            background: #863DFF;
             color: white;
         }
 
@@ -721,7 +711,7 @@
         .results-title {
             font-size: 2rem;
             font-weight: 700;
-            color: #1e3a8a;
+            color: #863DFF;
             margin-bottom: 2rem;
         }
 
@@ -827,7 +817,7 @@
         }
 
         .action-btn.primary {
-            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            background: linear-gradient(135deg, #863DFF, #9f5fff);
             color: white;
             box-shadow: 0 4px 15px rgba(134, 61, 255, 0.3);
         }
@@ -867,7 +857,7 @@
         }
 
         .feedback-note i {
-            color: #1e3a8a;
+            color: #863DFF;
             font-size: 1.1rem;
         }
 
@@ -963,7 +953,7 @@
         }
 
         .video-call-container h3 {
-            color: #1e3a8a;
+            color: #863DFF;
             margin-bottom: 1.5rem;
             font-weight: 700;
             font-size: 1.5rem;
@@ -1005,7 +995,7 @@
 
         .titulo {
             text-align: center;
-            color: #1e3a8a;
+            color: #863DFF;
             margin-bottom: 1.5rem;
             font-weight: 700;
             font-size: 1.5rem;
@@ -1040,7 +1030,7 @@
         }
 
         .input-field:focus {
-            border-color: #1e3a8a;
+            border-color: #863DFF;
             box-shadow: 0 0 0 3px rgba(134, 61, 255, 0.1);
             outline: none;
         }
@@ -1059,7 +1049,7 @@
             padding: 1rem;
             background-color: #f8fafc;
             border-radius: 0.5rem;
-            border-left: 4px solid #1e3a8a;
+            border-left: 4px solid #863DFF;
         }
 
         .form-instructions p {
@@ -1080,7 +1070,7 @@
         }
 
         .btn-primary {
-            background-color: #1e3a8a !important;
+            background-color: #863DFF !important;
             color: white !important;
             font-weight: 600 !important;
             padding: 0.875rem 1.5rem !important;
@@ -1218,7 +1208,7 @@
         .turn-success-title {
             font-size: 1.25rem !important;
             font-weight: 700 !important;
-            color: #1e3a8a !important;
+            color: #863DFF !important;
             text-align: center !important;
             margin-bottom: 0.5rem !important;
             margin-top: 0 !important;
@@ -1264,7 +1254,7 @@
 
         .turn-info-value {
             font-weight: 700;
-            color: #1e3a8a;
+            color: #863DFF;
             font-size: 0.9rem;
             text-align: right;
             flex: 1;
@@ -1299,7 +1289,7 @@
         }
 
         .turn-close-btn {
-            background-color: #1e3a8a !important;
+            background-color: #863DFF !important;
             color: white !important;
             border: none !important;
             padding: 0.75rem 1.5rem !important;
@@ -1472,7 +1462,7 @@
         }
 
         .horario-card:hover {
-            border-color: #1e3a8a;
+            border-color: #863DFF;
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(134, 61, 255, 0.1);
         }
@@ -1536,7 +1526,7 @@
         }
 
         .next-steps h4 {
-            color: #1e3a8a;
+            color: #863DFF;
             text-align: center;
             margin-bottom: 1rem;
             font-size: 1.3rem;
@@ -1564,7 +1554,7 @@
         }
 
         .next-step-card:hover {
-            border-color: #1e3a8a;
+            border-color: #863DFF;
             transform: translateY(-4px);
             box-shadow: 0 8px 25px rgba(134, 61, 255, 0.15);
         }
@@ -1588,7 +1578,7 @@
         }
 
         .step-btn {
-            background: #1e3a8a;
+            background: #863DFF;
             color: white;
             border: none;
             padding: 0.75rem 1.5rem;
@@ -1623,7 +1613,7 @@
         
         <div class="header">
             <div class="logo">
-                <img src="images/logo.png" alt="San Martín" style="width: 160px; height: auto;">
+                <img src="images/numia.png" alt="Numia Logo">
             </div>
             <h1>Evaluación Psicológica Complementaria</h1>
             <p>Sistema de evaluación con validación biométrica</p>
@@ -3291,7 +3281,7 @@
                 // Configurar fuente y colores
                 doc.setFont('helvetica');
                 doc.setFontSize(20);
-                doc.setTextColor(134, 61, 255); // #1e3a8a
+                doc.setTextColor(134, 61, 255); // #863DFF
                 
                 // Título
                 doc.text(certificado.titulo, 105, 30, { align: 'center' });
@@ -3335,7 +3325,7 @@
                 // Pie de página
                 doc.setFontSize(10);
                 doc.setTextColor(120, 120, 120);
-                doc.text('Municipalidad de San Martín - Sistema de Evaluación Psicológica', 105, 270, { align: 'center' });
+                doc.text('Gobierno Numia - Sistema de Evaluación Psicológica', 105, 270, { align: 'center' });
                 
                 // Descargar PDF
                 const nombreArchivo = `Certificado_Aprobacion_${new Date().toISOString().split('T')[0]}.pdf`;
@@ -3360,8 +3350,8 @@
                     <title>Certificado de Aprobación</title>
                     <style>
                         body { font-family: Arial, sans-serif; margin: 40px; }
-                        .certificado { border: 3px solid #1e3a8a; padding: 40px; text-align: center; }
-                        .titulo { color: #1e3a8a; font-size: 24px; margin-bottom: 20px; }
+                        .certificado { border: 3px solid #863DFF; padding: 40px; text-align: center; }
+                        .titulo { color: #863DFF; font-size: 24px; margin-bottom: 20px; }
                         .subtitulo { color: #666; font-size: 18px; margin-bottom: 30px; }
                         .resultados { text-align: left; margin: 30px 0; }
                         .aprobado { color: #10b981; font-weight: bold; }
@@ -3387,7 +3377,7 @@
                             <p>${certificado.observaciones}</p>
                         </div>
                         
-                        <div class="pie">Municipalidad de San Martín - Sistema de Evaluación Psicológica</div>
+                        <div class="pie">Gobierno Numia - Sistema de Evaluación Psicológica</div>
                     </div>
                 </body>
                 </html>
